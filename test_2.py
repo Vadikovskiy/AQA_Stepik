@@ -5,12 +5,14 @@ import math
 
 link = "http://suninjuly.github.io/find_link_text"
 
+number = str(math.ceil(math.pow(math.pi, math.e)*10000))
+
 try:
     browser = webdriver.Chrome()
     browser.get(link)
 
-    number = browser.find_element(By.LINK_TEXT, "224592")
-    number.click()
+    find_number = browser.find_element(By.LINK_TEXT, number)
+    find_number.click()
     input1 = browser.find_element(By.TAG_NAME, "input")
     input1.send_keys("Ivan")
     input2 = browser.find_element(By.NAME, "last_name")
@@ -28,5 +30,7 @@ finally:
     time.sleep(5)
     # закрываем браузер после всех манипуляций
     browser.quit()
+
+print("Задание выполнено! Ответ -  25.22771331599654")
 
 # не забываем оставить пустую строку в конце файла
